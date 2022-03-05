@@ -29,26 +29,27 @@ namespace GoodsCatalog_M_20
         /// </summary>
         private void InitializeComponent()
         {
-            this.loginMainButton = new System.Windows.Forms.Button();
+            this.registrationMainButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // loginMainButton
+            // registrationMainButton
             // 
-            this.loginMainButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.loginMainButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginMainButton.Location = new System.Drawing.Point(271, 12);
-            this.loginMainButton.Name = "loginMainButton";
-            this.loginMainButton.Size = new System.Drawing.Size(223, 40);
-            this.loginMainButton.TabIndex = 0;
-            this.loginMainButton.Text = "LOGIN";
-            this.loginMainButton.UseVisualStyleBackColor = false;
+            this.registrationMainButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.registrationMainButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.registrationMainButton.Location = new System.Drawing.Point(273, 25);
+            this.registrationMainButton.Name = "registrationMainButton";
+            this.registrationMainButton.Size = new System.Drawing.Size(223, 40);
+            this.registrationMainButton.TabIndex = 0;
+            this.registrationMainButton.Text = "REGISTRATION";
+            this.registrationMainButton.UseVisualStyleBackColor = false;
+            this.registrationMainButton.Click += new System.EventHandler(this.registrationMainButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.loginMainButton);
+            this.Controls.Add(this.registrationMainButton);
             this.Name = "Form1";
             this.Text = "Автоматизированная система управления каталогом товаров";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -58,7 +59,7 @@ namespace GoodsCatalog_M_20
 
         #endregion
 
-        private System.Windows.Forms.Button loginMainButton;
+        private System.Windows.Forms.Button registrationMainButton;
     }
 }
 
