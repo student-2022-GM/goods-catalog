@@ -42,7 +42,7 @@ namespace GoodsCatalog_M_20
             this.registrationMainButton.TabIndex = 0;
             this.registrationMainButton.Text = "REGISTRATION";
             this.registrationMainButton.UseVisualStyleBackColor = false;
-            this.registrationMainButton.Click += new System.EventHandler(this.registrationMainButton_Click);
+           
             // 
             // Form1
             // 
