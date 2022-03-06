@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+  <user login="admin" password="pass" name="" email="" />
   <user login="Benassy" password="jelly" name="Ben Benytto" email="ben@i.ua" />
   <user login="Mozzy" password="denno" name="Mike Norry" email="norry@i.ua" />
   <user login="mariia" password="123" name="Mariia Victoria" email="victory@i.ua" />
+  <user login="bill" password="12345" name="Bill Lopes" email="lopes@i.ua" />
+  <user login="Fiona" password="098" name="Fiona Stater" email="fio@ukr.net" />
+  <user login="Susanna" password="mio" name="Susan Bovak" email="B@ukr.net" />
 </root>

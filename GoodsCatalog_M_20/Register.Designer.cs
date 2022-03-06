@@ -87,6 +87,7 @@ namespace GoodsCatalog_M_20
             // 
             this.confirmPasswordTextBox.Location = new System.Drawing.Point(407, 176);
             this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
+            this.confirmPasswordTextBox.PasswordChar = '#';
             this.confirmPasswordTextBox.Size = new System.Drawing.Size(100, 20);
             this.confirmPasswordTextBox.TabIndex = 5;
             this.confirmPasswordTextBox.UseSystemPasswordChar = true;
@@ -105,6 +106,7 @@ namespace GoodsCatalog_M_20
             // 
             this.passwordOriginTextBox.Location = new System.Drawing.Point(262, 176);
             this.passwordOriginTextBox.Name = "passwordOriginTextBox";
+            this.passwordOriginTextBox.PasswordChar = '#';
             this.passwordOriginTextBox.Size = new System.Drawing.Size(100, 20);
             this.passwordOriginTextBox.TabIndex = 7;
             this.passwordOriginTextBox.UseSystemPasswordChar = true;
