@@ -23,6 +23,8 @@ namespace GoodsCatalog_M_20.Storage
 
         // public virtual DbSet<MyEntity> MyEntities { get; set; }
         public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
     }
 
     //public class MyEntity

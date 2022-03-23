@@ -89,8 +89,14 @@
     <Compile Include="Migrations\202203050054355_FirstMigration.Designer.cs">
       <DependentUpon>202203050054355_FirstMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203201621534_AddProductMigration.cs" />
+    <Compile Include="Migrations\202203201621534_AddProductMigration.Designer.cs">
+      <DependentUpon>202203201621534_AddProductMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Orders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,7 @@
     <Compile Include="Sales.Designer.cs">
       <DependentUpon>Sales.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services\SecurityManager.cs" />
     <Compile Include="Storage\Model1.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -138,6 +145,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202203050054355_FirstMigration.resx">
       <DependentUpon>202203050054355_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203201621534_AddProductMigration.resx">
+      <DependentUpon>202203201621534_AddProductMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products.resx">
+      <DependentUpon>Products.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -165,9 +178,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Services\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Data\users.xml" />
   </ItemGroup>
