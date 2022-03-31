@@ -17,6 +17,7 @@ namespace GoodsCatalog_M_20
     public partial class Form1 : Form
     {
         Model1 db = new Model1();
+        Products adminProductsWindow = null;
         public Form1()
         {
             InitializeComponent();
@@ -34,12 +35,12 @@ namespace GoodsCatalog_M_20
                 var res = db.Accounts.Where(a => a.Login == login && a.Password == password).FirstOrDefault();
                 if (res != null)
                 {
-                    MessageBox.Show("Access granted !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     if (login == "Admin_123") 
                     {
-                        Products adminProductsWindow = new Products();
-                        adminProductsWindow.Show();
+                        adminProductsWindow = new Products(this);
+                        btAdmin.Visible = true;
                     }
+                    MessageBox.Show("Access granted !!!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else 
                 {
@@ -87,6 +88,20 @@ namespace GoodsCatalog_M_20
             db.SaveChanges();
             MessageBox.Show("Ініціалізація", "Повідомлення",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btAdmin_Click(object sender, EventArgs e)
+        {
+            if (adminProductsWindow != null)
+            {
+                Hide();
+                adminProductsWindow.Show();
+            }
         }
     }
 }

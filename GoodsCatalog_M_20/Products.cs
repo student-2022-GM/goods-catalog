@@ -15,8 +15,10 @@ namespace GoodsCatalog_M_20
     public partial class Products : Form
     {
         Model1 db = new Model1();
-        public Products()
+        Form parent = null;
+        public Products(Form Parent)
         {
+            parent = Parent;
             InitializeComponent();
         }
 
@@ -71,6 +73,15 @@ namespace GoodsCatalog_M_20
                 Measures = "штук",
                 CategoryId = 3
             });
+            db.Products.Add(new Product()
+            {
+                Name = "Product-5",
+                Producer = "Producer-1",
+                Quantity = 90,
+                Price = 120.45M,
+                Measures = "штуки",
+                CategoryId = 1
+            });
 
             db.SaveChanges();
             MessageBox.Show("Good initialization", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -83,19 +94,154 @@ namespace GoodsCatalog_M_20
 
         }
 
+        private List<String> producerName;
+        private decimal productPriceMin;
+        private decimal productPriceMax;
+        private decimal filterMin;
+        private decimal filterMax;
+
+        private List<Product> productList;
+
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int cid = (listBox1.SelectedItem as Category).Id;
-            var res = db.Products.Where(p => p.Category.Id == cid).ToList();
+            productList = db.Products.Where(p => p.Category.Id == cid).ToList();
+
+            producerName = productList.Select(p => p.Producer).Distinct().OrderBy(x => x).ToList();
+            producerName.Insert(0, "");
+            producerComboBox.DataSource = producerName;
 
             categoriesList.Items.Clear();
-            foreach (Product p in res)
+            productPriceMax = productPriceMin = productList[0].Price;
+            foreach (Product p in productList)
             {
                 var item = categoriesList.Items.Add(p.Name);
                 item.SubItems.Add(p.Producer);
                 item.SubItems.Add(p.Price.ToString("F"));
                 item.SubItems.Add(p.Quantity.ToString());
                 item.SubItems.Add(p.Measures);
+                if (productPriceMax < p.Price) productPriceMax = p.Price;
+                if (productPriceMin > p.Price) productPriceMin = p.Price;
+            }
+
+            filterMin = productPriceMin;
+            filterMax = productPriceMax;
+            minPriceTextBox.Text = productPriceMin.ToString();
+            maxPriceTextBox.Text = productPriceMax.ToString();
+        }
+
+        private void Products_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(parent != null)
+            {
+                parent.Show();
+                this.Hide();
+                e.Cancel = true;
+            }
+        }
+
+        private void producerComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            showFilter();
+        }
+
+        private void setMinFilter()
+        {
+            if (minPriceTextBox.Text == "")
+            {
+                filterMin = productPriceMin;
+            }
+            else
+            {
+                decimal value = Convert.ToDecimal(minPriceTextBox.Text);
+                if (value < productPriceMin)
+                {
+                    value = productPriceMin;
+                }
+                if (filterMax < value)
+                {
+                    value = filterMax;
+                }
+                filterMin = value;
+            }
+            showFilter();
+            minPriceTextBox.Text = filterMin.ToString();
+        }
+
+        private void setMaxFilter()
+        {
+            if (maxPriceTextBox.Text == "")
+            {
+                filterMax = productPriceMax;
+            }
+            else
+            {
+                decimal value = Convert.ToDecimal(maxPriceTextBox.Text);
+                if (value > productPriceMax)
+                {
+                    value = productPriceMax;
+                }
+                if (filterMin > value)
+                {
+                    value = filterMin;
+                }
+                filterMax = value;
+            }
+            showFilter();
+            maxPriceTextBox.Text = filterMax.ToString();
+        }
+
+        private void showFilter()
+        {
+            if (producerComboBox.SelectedIndex > 0)
+            {
+                categoriesList.Items.Clear();
+                foreach (Product p in productList.Where(x => x.Producer == producerComboBox.SelectedItem.ToString() && x.Price >= filterMin && x.Price <= filterMax))
+                {
+                    var item = categoriesList.Items.Add(p.Name);
+                    item.SubItems.Add(p.Producer);
+                    item.SubItems.Add(p.Price.ToString("F"));
+                    item.SubItems.Add(p.Quantity.ToString());
+                    item.SubItems.Add(p.Measures);
+                }
+            }
+            else
+            {
+                categoriesList.Items.Clear();
+                foreach (Product p in productList.Where(x => x.Price >= filterMin && x.Price <= filterMax))
+                {
+                    var item = categoriesList.Items.Add(p.Name);
+                    item.SubItems.Add(p.Producer);
+                    item.SubItems.Add(p.Price.ToString("F"));
+                    item.SubItems.Add(p.Quantity.ToString());
+                    item.SubItems.Add(p.Measures);
+                }
+            }
+        }
+
+        private void minPriceTextBox_Leave(object sender, EventArgs e)
+        {
+            setMinFilter();
+        }
+
+        private void maxPriceTextBox_Leave(object sender, EventArgs e)
+        {
+            setMaxFilter();
+        }
+
+        private void minPriceTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                setMinFilter();
+            }
+        }
+
+        private void maxPriceTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                setMaxFilter();
             }
         }
     }
