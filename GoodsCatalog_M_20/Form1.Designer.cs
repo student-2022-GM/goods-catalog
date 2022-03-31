@@ -31,6 +31,7 @@ namespace GoodsCatalog_M_20
         {
             this.registrationMainButton = new System.Windows.Forms.Button();
             this.adminButton = new System.Windows.Forms.Button();
+            this.btAdmin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // registrationMainButton
@@ -55,16 +56,29 @@ namespace GoodsCatalog_M_20
             this.adminButton.Visible = false;
             this.adminButton.Click += new System.EventHandler(this.adminButton_Click);
             // 
+            // btAdmin
+            // 
+            this.btAdmin.Location = new System.Drawing.Point(521, 42);
+            this.btAdmin.Name = "btAdmin";
+            this.btAdmin.Size = new System.Drawing.Size(75, 23);
+            this.btAdmin.TabIndex = 2;
+            this.btAdmin.Text = "Admin";
+            this.btAdmin.UseVisualStyleBackColor = true;
+            this.btAdmin.Visible = false;
+            this.btAdmin.Click += new System.EventHandler(this.btAdmin_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btAdmin);
             this.Controls.Add(this.adminButton);
             this.Controls.Add(this.registrationMainButton);
             this.Name = "Form1";
             this.Text = "Автоматизированная система управления каталогом товаров";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.ResumeLayout(false);
 
         }
@@ -73,6 +87,7 @@ namespace GoodsCatalog_M_20
 
         private System.Windows.Forms.Button registrationMainButton;
         private System.Windows.Forms.Button adminButton;
+        private System.Windows.Forms.Button btAdmin;
     }
 }
 

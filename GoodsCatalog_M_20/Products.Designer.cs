@@ -30,21 +30,27 @@ namespace GoodsCatalog_M_20
         private void InitializeComponent()
         {
             this.CategoryGroupBox = new System.Windows.Forms.GroupBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.groupBox = new System.Windows.Forms.GroupBox();
-            this.addButton = new System.Windows.Forms.Button();
-            this.DeleteButton = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.maxPriceTextBox = new System.Windows.Forms.TextBox();
+            this.minPriceTextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.producerComboBox = new System.Windows.Forms.ComboBox();
+            this.initDataButton = new System.Windows.Forms.Button();
             this.categoriesList = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.initDataButton = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
+            this.addButton = new System.Windows.Forms.Button();
             this.CategoryGroupBox.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox.SuspendLayout();
@@ -57,10 +63,38 @@ namespace GoodsCatalog_M_20
             this.CategoryGroupBox.Dock = System.Windows.Forms.DockStyle.Left;
             this.CategoryGroupBox.Location = new System.Drawing.Point(0, 0);
             this.CategoryGroupBox.Name = "CategoryGroupBox";
-            this.CategoryGroupBox.Size = new System.Drawing.Size(326, 450);
+            this.CategoryGroupBox.Size = new System.Drawing.Size(326, 502);
             this.CategoryGroupBox.TabIndex = 0;
             this.CategoryGroupBox.TabStop = false;
             this.CategoryGroupBox.Text = "Категорії товарів";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(3, 363);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(320, 136);
+            this.panel1.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(137, 56);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(115, 38);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Редагувати";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(9, 56);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(122, 38);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Додати";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // listBox1
             // 
@@ -73,75 +107,97 @@ namespace GoodsCatalog_M_20
             this.listBox1.TabIndex = 0;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(3, 311);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(320, 136);
-            this.panel1.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(9, 56);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 38);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Додати";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(137, 56);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(115, 38);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Редагувати";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // groupBox
             // 
+            this.groupBox.Controls.Add(this.label3);
+            this.groupBox.Controls.Add(this.label2);
+            this.groupBox.Controls.Add(this.maxPriceTextBox);
+            this.groupBox.Controls.Add(this.minPriceTextBox);
+            this.groupBox.Controls.Add(this.label1);
+            this.groupBox.Controls.Add(this.producerComboBox);
             this.groupBox.Controls.Add(this.initDataButton);
             this.groupBox.Controls.Add(this.categoriesList);
             this.groupBox.Controls.Add(this.button5);
             this.groupBox.Controls.Add(this.DeleteButton);
             this.groupBox.Controls.Add(this.addButton);
             this.groupBox.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox.Location = new System.Drawing.Point(332, 0);
+            this.groupBox.Location = new System.Drawing.Point(361, 0);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(468, 450);
+            this.groupBox.Size = new System.Drawing.Size(468, 502);
             this.groupBox.TabIndex = 1;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Список товарів";
             // 
-            // addButton
+            // label3
             // 
-            this.addButton.Location = new System.Drawing.Point(35, 391);
-            this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(107, 35);
-            this.addButton.TabIndex = 0;
-            this.addButton.Text = "Додати";
-            this.addButton.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(187, 354);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 16);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Min price :";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // DeleteButton
+            // label2
             // 
-            this.DeleteButton.Location = new System.Drawing.Point(286, 391);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(94, 35);
-            this.DeleteButton.TabIndex = 1;
-            this.DeleteButton.Text = "Видалити";
-            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(306, 354);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 16);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Max price :";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button5
+            // maxPriceTextBox
             // 
-            this.button5.Location = new System.Drawing.Point(165, 391);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(101, 35);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "Змінити";
-            this.button5.UseVisualStyleBackColor = true;
+            this.maxPriceTextBox.Location = new System.Drawing.Point(309, 382);
+            this.maxPriceTextBox.Name = "maxPriceTextBox";
+            this.maxPriceTextBox.Size = new System.Drawing.Size(100, 20);
+            this.maxPriceTextBox.TabIndex = 8;
+            this.maxPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.maxPriceTextBox_KeyPress);
+            this.maxPriceTextBox.Leave += new System.EventHandler(this.maxPriceTextBox_Leave);
+            // 
+            // minPriceTextBox
+            // 
+            this.minPriceTextBox.Location = new System.Drawing.Point(190, 382);
+            this.minPriceTextBox.Name = "minPriceTextBox";
+            this.minPriceTextBox.Size = new System.Drawing.Size(100, 20);
+            this.minPriceTextBox.TabIndex = 7;
+            this.minPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.minPriceTextBox_KeyPress);
+            this.minPriceTextBox.Leave += new System.EventHandler(this.minPriceTextBox_Leave);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(22, 354);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 16);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Choose producer :";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // producerComboBox
+            // 
+            this.producerComboBox.FormattingEnabled = true;
+            this.producerComboBox.Location = new System.Drawing.Point(25, 382);
+            this.producerComboBox.Name = "producerComboBox";
+            this.producerComboBox.Size = new System.Drawing.Size(121, 21);
+            this.producerComboBox.TabIndex = 5;
+            this.producerComboBox.SelectedIndexChanged += new System.EventHandler(this.producerComboBox_SelectedIndexChanged);
+            // 
+            // initDataButton
+            // 
+            this.initDataButton.Location = new System.Drawing.Point(390, 465);
+            this.initDataButton.Name = "initDataButton";
+            this.initDataButton.Size = new System.Drawing.Size(75, 23);
+            this.initDataButton.TabIndex = 4;
+            this.initDataButton.Text = "initData";
+            this.initDataButton.UseVisualStyleBackColor = true;
+            this.initDataButton.Visible = false;
+            this.initDataButton.Click += new System.EventHandler(this.initDataButton_Click);
             // 
             // categoriesList
             // 
@@ -184,30 +240,48 @@ namespace GoodsCatalog_M_20
             // 
             this.columnHeader5.Text = "Одиниці";
             // 
-            // initDataButton
+            // button5
             // 
-            this.initDataButton.Location = new System.Drawing.Point(393, 397);
-            this.initDataButton.Name = "initDataButton";
-            this.initDataButton.Size = new System.Drawing.Size(75, 23);
-            this.initDataButton.TabIndex = 4;
-            this.initDataButton.Text = "initData";
-            this.initDataButton.UseVisualStyleBackColor = true;
-            this.initDataButton.Visible = false;
-            this.initDataButton.Click += new System.EventHandler(this.initDataButton_Click);
+            this.button5.Location = new System.Drawing.Point(164, 453);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(101, 35);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "Змінити";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Location = new System.Drawing.Point(280, 453);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(94, 35);
+            this.DeleteButton.TabIndex = 1;
+            this.DeleteButton.Text = "Видалити";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            // 
+            // addButton
+            // 
+            this.addButton.Location = new System.Drawing.Point(39, 453);
+            this.addButton.Name = "addButton";
+            this.addButton.Size = new System.Drawing.Size(107, 35);
+            this.addButton.TabIndex = 0;
+            this.addButton.Text = "Додати";
+            this.addButton.UseVisualStyleBackColor = true;
             // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(829, 502);
             this.Controls.Add(this.groupBox);
             this.Controls.Add(this.CategoryGroupBox);
             this.Name = "Products";
             this.Text = "Адміністративна панель управління товарами";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Products_FormClosing);
             this.Load += new System.EventHandler(this.Products_Load);
             this.CategoryGroupBox.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.groupBox.ResumeLayout(false);
+            this.groupBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -230,5 +304,11 @@ namespace GoodsCatalog_M_20
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button addButton;
         private System.Windows.Forms.Button initDataButton;
+        private System.Windows.Forms.ComboBox producerComboBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox maxPriceTextBox;
+        private System.Windows.Forms.TextBox minPriceTextBox;
     }
 }
